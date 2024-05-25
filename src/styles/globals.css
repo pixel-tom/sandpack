@@ -20,16 +20,55 @@ body {
   }
 }
 
-html, body, #__next {
+/* globals.css */
+html, body, #__next, main {
   height: 100%;
   margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 main {
-  height: calc(100vh - 70px); /* Adjust based on the actual height of your header */
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  height: 92%;
 }
 
+#content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
 
+.scroll-area {
+  height: 92%;
+  overflow: auto;
+}
 
+/* Add this to your global CSS file */
+@keyframes slide-in {
+  0% {
+    width: 90px;
+  }
+  100% {
+    width: 500px;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    width: 500px;
+  }
+  100% {
+    width: 90px;
+  }
+}
+
+.slide-in {
+  animation: slide-in 0.3s forwards;
+}
+
+.slide-out {
+  animation: slide-out 0.3s forwards;
+}

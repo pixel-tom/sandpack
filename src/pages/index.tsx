@@ -1,40 +1,31 @@
 import { FC } from "react";
-import { useRouter } from "next/router";
 import { courses } from "@/data/courses";
-import { Card, Title, Text, Button, Container, Grid } from "@mantine/core";
+import { Grid, Text } from "@mantine/core";
+
+import FeaturedCourseCard from "@/components/FeaturedCourseCard/FeaturedCourseCard";
 
 const Home: FC = () => {
-  const router = useRouter();
-
-  const handleCourseClick = (id: string) => {
-    router.push(`/courses/${id}`);
-  };
-
   return (
-    <Container>
-      <Title order={1} style={{ margin: "20px 0" }}>
-        Solana Development Courses
-      </Title>
-      <Grid>
+    <div className="p-6 mx-auto max-w-6xl mt-4">
+      <Text size={"xl"} pl={20} fw={600} className="text-left mb-4">
+        Featured Courses
+      </Text>
+
+      <Grid gutter="lg" py={20}>
         {courses.map((course) => (
-          <Grid.Col key={course.id} span={4}>
-            <Card shadow="sm" padding="lg">
-              <Title order={3}>{course.title}</Title>
-              <Text>{course.description}</Text>
-              <Button
-                variant="light"
-                color="blue"
-                fullWidth
-                style={{ marginTop: 14 }}
-                onClick={() => handleCourseClick(course.id)}
-              >
-                Start Course
-              </Button>
-            </Card>
+          <Grid.Col key={course.id} span={6}>
+            <FeaturedCourseCard
+              course={{
+                id: course.id,
+                title: course.title,
+                description: course.description,
+                icons: course.icons,
+              }}
+            />
           </Grid.Col>
         ))}
       </Grid>
-    </Container>
+    </div>
   );
 };
 
