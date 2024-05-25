@@ -9,8 +9,18 @@ import {
   SandpackPreview,
   SandpackProvider,
 } from "@codesandbox/sandpack-react";
-import { ScrollArea, Text } from "@mantine/core";
+import {
+  ScrollArea,
+  Text,
+  Title,
+  ThemeIcon,
+  List,
+  Group,
+  Divider,
+} from "@mantine/core";
+import { IconBook } from "@tabler/icons-react";
 import { indexFile } from "@/files/index";
+import { HeaderMegaMenu } from "@/components/Header/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -53,33 +63,42 @@ const Home: React.FC = () => {
   return (
     <main
       ref={containerRef}
-      className={`flex min-h-screen min-w-screen max-w-screen h-full w-full flex-row ${inter.className}`}
+      className={`flex min-w-screen max-w-screen w-full flex-row ${inter.className}`}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
-      <div style={{ width: leftWidth, minWidth: "20vw" }}>
-        <ScrollArea className="h-full bg-[#151515]">
-          {/* Course content goes here */}
-          <Text size="md">Course Content</Text>
-          <Text>
-            This is where the course content will be displayed. Add your course
-            sections, lessons, or any other relevant information here.
+      <div style={{ width: leftWidth, minWidth: "20vw", backgroundColor: "#151515" }}>
+        <ScrollArea p={'md'} style={{ height: 'calc(100vh - 60px)' }} className="bg-[#151515]">
+          <Title order={2} style={{ color: "#f5a623", marginBottom: "20px" }}>
+            Course Content
+          </Title>
+          <Text style={{ color: "#ffffff", marginBottom: "20px" }}>
+            This is where the course content will be displayed. Add your course sections, lessons, or any other relevant information here.
           </Text>
-          {/* Example course sections */}
-          <ul>
-            <li>Introduction</li>
-            <li>Lesson 1: Getting Started</li>
-            <li>Lesson 2: Setting Up</li>
-            <li>Lesson 3: First Steps</li>
-            <li>Conclusion</li>
-          </ul>
+          <Divider style={{ marginBottom: "20px" }} />
+          <List
+            spacing="md"
+            size="sm"
+            icon={
+              <ThemeIcon color="teal" size={24} radius="xl">
+                <IconBook size={16} />
+              </ThemeIcon>
+            }
+            style={{ color: "#ffffff" }}
+          >
+            <List.Item>Introduction</List.Item>
+            <List.Item>Lesson 1: Getting Started</List.Item>
+            <List.Item>Lesson 2: Setting Up</List.Item>
+            <List.Item>Lesson 3: First Steps</List.Item>
+            <List.Item>Conclusion</List.Item>
+          </List>
         </ScrollArea>
       </div>
       <div
         onMouseDown={(e) => handleMouseDown(e, "horizontal")}
         className="w-2 bg-gray-600 cursor-col-resize"
-        style={{ width: "10px", cursor: "col-resize" }}
+        style={{ width: "10px", cursor: "col-resize", height: 'calc(100vh - 60px)' }}
       />
       <div className="flex-1 h-full" style={{ maxWidth: "80vw" }}>
         <SandpackProvider
@@ -136,20 +155,14 @@ const Home: React.FC = () => {
               showTabs
               showInlineErrors
               showRunButton
-              style={{ height: "100vh" }}
+              style={{ height: 'calc(100vh - 60px)' }}
             />
-            <div style={{ height: "100vh", width: '400px', display: 'flex', flexDirection: 'column' }}>
+            <div style={{ height: 'calc(100vh - 60px)', width: '400px' }}>
               <SandpackPreview
                 showNavigator
                 showRefreshButton
-                style={{ height: `${previewHeight}vh`, width: "100%" }}
+                style={{ height: 'calc(100vh - 60px)', width: "100%" }}
               />
-              <div
-                onMouseDown={(e) => handleMouseDown(e, "vertical")}
-                className="h-2 bg-gray-600 cursor-row-resize"
-                style={{ height: "10px", cursor: "row-resize" }}
-              />
-              <SandpackConsole style={{ height: `${100 - previewHeight}vh`, width: "100%" }} />
             </div>
           </SandpackLayout>
         </SandpackProvider>

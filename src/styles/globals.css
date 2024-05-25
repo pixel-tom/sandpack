@@ -19,3 +19,15 @@ body {
     text-wrap: balance;
   }
 }
+
+html, body, #__next {
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  height: calc(100vh - 70px); /* Adjust based on the actual height of your header */
+  display: flex;
+  flex-direction: row;
+}
+
