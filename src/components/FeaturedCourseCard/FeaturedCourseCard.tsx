@@ -35,7 +35,7 @@ export default function FeaturedCourseCard({
       }}
     >
       <div className="flex justify-between w-full">
-        <Pill>Rookie</Pill>
+        <Pill bg="indigo" fw={600} size="md">Rookie</Pill>
         <div className="flex space-x-[-8px] ">
           {course.icons.map((icon, index) => (
             <Image key={index} src={icon} alt={`icon-${index}`} width={45} height={45} />
