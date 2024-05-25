@@ -84,8 +84,8 @@ const Home: React.FC = () => {
       onMouseLeave={handleMouseUp}
     >
       <div style={{ width: leftWidth, minWidth: "20vw", backgroundColor: "#151515" }}>
-        <ScrollArea p={"md"} style={{ height: "calc(100vh - 60px)" }} className="bg-[#151515]">
-          <Title order={2} style={{ color: "#f5a623", marginBottom: "20px" }}>
+        <ScrollArea py={"lg"} px={'xl'} style={{ height: "calc(100vh - 60px)" }} className="bg-[#151515]">
+          <Title className="text-orange-50" order={2} style={{ marginBottom: "20px" }}>
             Intro to solana/web3.js
           </Title>
           <div
