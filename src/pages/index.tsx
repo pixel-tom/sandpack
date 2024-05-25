@@ -20,7 +20,6 @@ import {
 } from "@mantine/core";
 import { IconBook } from "@tabler/icons-react";
 import { indexFile } from "@/files/index";
-import { HeaderMegaMenu } from "@/components/Header/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -81,7 +80,7 @@ const Home: React.FC = () => {
             spacing="md"
             size="sm"
             icon={
-              <ThemeIcon color="teal" size={24} radius="xl">
+              <ThemeIcon color="orange" size={24} radius="xl">
                 <IconBook size={16} />
               </ThemeIcon>
             }
@@ -97,7 +96,7 @@ const Home: React.FC = () => {
       </div>
       <div
         onMouseDown={(e) => handleMouseDown(e, "horizontal")}
-        className="w-2 bg-gray-600 cursor-col-resize"
+        className="w-2 bg-[#222222] cursor-col-resize"
         style={{ width: "10px", cursor: "col-resize", height: 'calc(100vh - 60px)' }}
       />
       <div className="flex-1 h-full" style={{ maxWidth: "80vw" }}>

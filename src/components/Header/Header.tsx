@@ -90,7 +90,7 @@ import {
       <Box p={10}>
         <header className={classes.header}>
           <Group justify="space-between" h="100%">
-            <MantineLogo size={30} />
+            <MantineLogo size={30} color='orange'/>
   
             <Group h="100%" gap={0} visibleFrom="sm">
               <a href="#" className={classes.link}>
@@ -105,7 +105,7 @@ import {
                       </Box>
                       <IconChevronDown
                         style={{ width: rem(16), height: rem(16) }}
-                        color={theme.colors.blue[6]}
+                        color={theme.colors.orange[6]}
                       />
                     </Center>
                   </a>
@@ -150,7 +150,7 @@ import {
   
             <Group visibleFrom="sm">
               <Button variant="default">Log in</Button>
-              <Button>Sign up</Button>
+              <Button variant='filled' color='orange'>Sign up</Button>
             </Group>
   
             <Burger opened={drawerOpened} onClick={toggleDrawer} hiddenFrom="sm" />
@@ -195,7 +195,7 @@ import {
   
             <Group justify="center" grow pb="xl" px="md">
               <Button variant="default">Log in</Button>
-              <Button>Sign up</Button>
+              <Button  color='orange'>Sign up</Button>
             </Group>
           </ScrollArea>
         </Drawer>
