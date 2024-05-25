@@ -17,11 +17,47 @@ import {
   List,
   Group,
   Divider,
+  Button,
+  Stepper,
+  Center,
 } from "@mantine/core";
 import { IconBook } from "@tabler/icons-react";
 import { indexFile } from "@/files/index";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const courseContent = [
+  {
+    title: "Introduction",
+    content: "Welcome to the course! This is the introduction section.",
+    code: `// This is the introductory code example
+console.log('Welcome to the course!');`,
+  },
+  {
+    title: "Lesson 1: Getting Started",
+    content: "In this lesson, you will learn how to get started.",
+    code: `// Lesson 1 code example
+console.log('Getting started');`,
+  },
+  {
+    title: "Lesson 2: Setting Up",
+    content: "In this lesson, you will learn how to set up your environment.",
+    code: `// Lesson 2 code example
+console.log('Setting up');`,
+  },
+  {
+    title: "Lesson 3: First Steps",
+    content: "In this lesson, you will take your first steps.",
+    code: `// Lesson 3 code example
+console.log('First steps');`,
+  },
+  {
+    title: "Conclusion",
+    content: "This is the conclusion of the course.",
+    code: `// Conclusion code example
+console.log('Congratulations on completing the course!');`,
+  },
+];
 
 const Home: React.FC = () => {
   const [leftWidth, setLeftWidth] = useState<number>(500);
@@ -29,6 +65,20 @@ const Home: React.FC = () => {
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [isVerticalDragging, setIsVerticalDragging] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const [activeStep, setActiveStep] = useState<number>(0);
+  const [highestStepVisited, setHighestStepVisited] = useState<number>(activeStep);
+
+  const handleStepChange = (nextStep: number) => {
+    const isOutOfBounds = nextStep > courseContent.length - 1 || nextStep < 0;
+
+    if (isOutOfBounds) {
+      return;
+    }
+
+    setActiveStep(nextStep);
+    setHighestStepVisited((hSC) => Math.max(hSC, nextStep));
+  };
 
   const handleMouseDown = (e: MouseEvent<HTMLDivElement>, type: string) => {
     if (type === "horizontal") {
@@ -68,12 +118,12 @@ const Home: React.FC = () => {
       onMouseLeave={handleMouseUp}
     >
       <div style={{ width: leftWidth, minWidth: "20vw", backgroundColor: "#151515" }}>
-        <ScrollArea p={'md'} style={{ height: 'calc(100vh - 60px)' }} className="bg-[#151515]">
+        <ScrollArea p={"md"} style={{ height: "calc(100vh - 60px)" }} className="bg-[#151515]">
           <Title order={2} style={{ color: "#f5a623", marginBottom: "20px" }}>
-            Course Content
+            Intro to solana/web3.js
           </Title>
           <Text style={{ color: "#ffffff", marginBottom: "20px" }}>
-            This is where the course content will be displayed. Add your course sections, lessons, or any other relevant information here.
+            {courseContent[activeStep].content}
           </Text>
           <Divider style={{ marginBottom: "20px" }} />
           <List
@@ -86,24 +136,39 @@ const Home: React.FC = () => {
             }
             style={{ color: "#ffffff" }}
           >
-            <List.Item>Introduction</List.Item>
-            <List.Item>Lesson 1: Getting Started</List.Item>
-            <List.Item>Lesson 2: Setting Up</List.Item>
-            <List.Item>Lesson 3: First Steps</List.Item>
-            <List.Item>Conclusion</List.Item>
+            {courseContent.map((lesson, index) => (
+              <List.Item
+                key={index}
+                onClick={() => setActiveStep(index)}
+                style={{ cursor: "pointer", color: activeStep === index ? "#f5a623" : "#ffffff" }}
+              >
+                {lesson.title}
+              </List.Item>
+            ))}
           </List>
+          <Center  mt="md" className="flex gap-5">
+            <Button onClick={() => handleStepChange(activeStep - 1)} disabled={activeStep === 0}>
+              Back
+            </Button>
+            <Button
+              onClick={() => handleStepChange(activeStep + 1)}
+              disabled={activeStep === courseContent.length - 1}
+            >
+              Next step
+            </Button>
+          </Center>
         </ScrollArea>
       </div>
       <div
         onMouseDown={(e) => handleMouseDown(e, "horizontal")}
         className="w-2 bg-[#222222] cursor-col-resize"
-        style={{ width: "10px", cursor: "col-resize", height: 'calc(100vh - 60px)' }}
+        style={{ width: "10px", cursor: "col-resize", height: "calc(100vh - 60px)" }}
       />
-      <div className="flex-1 h-full" style={{ maxWidth: "80vw" }}>
+      <div className="flex-1 h-full" style={{ maxWidth: "80vw", minWidth: "50vw" }}>
         <SandpackProvider
-          files={{
-            "pages/index.js": indexFile,
-          }}
+        autoSave='false'
+        autoCorrect="true"
+        
           customSetup={{
             dependencies: {
               "@metaplex-foundation/js": "^0.17.12",
@@ -150,18 +215,20 @@ const Home: React.FC = () => {
         >
           <SandpackLayout>
             <SandpackCodeEditor
+              
               showLineNumbers
               showTabs
               showInlineErrors
               showRunButton
-              style={{ height: 'calc(100vh - 60px)' }}
+              style={{ height: "calc(100vh - 60px)" }}
             />
-            <div style={{ height: 'calc(100vh - 60px)', width: '400px' }}>
+            <div style={{ height: "calc(100vh - 60px)", width: "400px" }}>
               <SandpackPreview
                 showNavigator
                 showRefreshButton
-                style={{ height: 'calc(100vh - 60px)', width: "100%" }}
+                style={{ height: "70%", width: "100%" }}
               />
+              <SandpackConsole style={{ height: "30%", width: "100%" }} />
             </div>
           </SandpackLayout>
         </SandpackProvider>
