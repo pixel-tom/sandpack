@@ -192,9 +192,9 @@ const CoursePage: React.FC = () => {
           </ScrollArea>
         </div>
         <div
-          onMouseDown={(e) => handleMouseDown(e, "horizontal")}
-          className="w-2 bg-[#222222] cursor-col-resize"
-          style={{ width: "10px", cursor: "col-resize", height: "100%" }}
+          
+          className="w-2 bg-[#222222]"
+          style={{ width: "10px", height: "100%" }}
         />
         <div
           className="flex-1 h-full"
@@ -224,7 +224,7 @@ const CoursePage: React.FC = () => {
                 showRunButton
                 style={{ height: "calc(100vh - 60px)" }}
               />
-              <div style={{ height: "calc(100vh - 60px)", width: "400px" }}>
+              <div style={{ height: "calc(100vh - 60px)", width: "340px" }}>
                 <SandpackPreview
                   showNavigator
                   showRefreshButton
