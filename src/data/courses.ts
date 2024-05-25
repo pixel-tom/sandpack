@@ -5,7 +5,8 @@ export const courses = [
       description: "Learn the basics of Solana development.",
       contentFile: "@/lessons/intro-to-transactions/courseContent",
       files: "@/lessons/intro-to-transactions/files",
-      icons: ["/solana.svg", "/bonk.svg"]
+      icons: ["/solana.svg", "/bonk.svg"],
+      bgColor: "#1b1b1b"
     },
     {
         id: "intro-to-solana",
@@ -13,7 +14,8 @@ export const courses = [
         description: "Learn the basics of Solana development.",
         contentFile: "@/lessons/intro-to-transactions/courseContent",
         files: "@/lessons/intro-to-transactions/files",
-        icons: ["/solana.svg", "/bonk.svg"]
+        icons: ["/solana.svg", "/bonk.svg"],
+        bgColor: "#1b1b1b"
       },
     // Add more courses here as needed
   ];

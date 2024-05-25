@@ -26,26 +26,31 @@ export default function FeaturedCourseCard({
       padding="lg"
       radius="md"
       h={300}
-      bg="#6D30B7"
       withBorder
-      className="flex flex-col justify-between rounded-lg shadow-md overflow-hidden"
+      className="flex flex-col justify-between rounded-lg shadow-md overflow-hidden bg-no-repeat"
+      style={{
+        backgroundImage: "url('/card-bg.svg')",
+        backgroundSize: "auto 100%",  // Adjust size to fit height
+        backgroundPosition: "right center", // Position it to the right
+      }}
     >
       <div className="flex justify-between w-full">
         <Pill>Rookie</Pill>
-        <div className="flex space-x-2">
+        <div className="flex space-x-[-8px] ">
           {course.icons.map((icon, index) => (
-            <Image key={index} src={icon} alt={`icon-${index}`} width={40} height={40} />
+            <Image key={index} src={icon} alt={`icon-${index}`} width={45} height={45} />
           ))}
         </div>
       </div>
-      <div className=" mt-4">
-        <div className="mb-4"><p className="text-2xl font-bold">
-          {course.title}
-        </p>
-        <Text size="sm" color="dimmed" className="mb-4 text-gray-700">
-          {course.description}
-        </Text></div>
-        
+      <div className="mt-4">
+        <div className="mb-4">
+          <p className="text-2xl font-bold">
+            {course.title}
+          </p>
+          <Text size="sm" color="dimmed" className="mb-4 text-gray-700">
+            {course.description}
+          </Text>
+        </div>
         <Button
           variant="filled"
           color="dark"

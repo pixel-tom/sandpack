@@ -14,19 +14,17 @@ import {
   List,
   Divider,
   Button,
-  Center,
+  useMantineColorScheme,
 } from "@mantine/core";
-import {
-  IconBook,
-  IconChevronLeft,
-  IconChevronRight,
-} from "@tabler/icons-react";
+import { IconBook, IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { courses } from "@/data/courses";
-import { courseContent } from "@/lessons/intro-to-transactions/courseContent"; // Adjust the import path as needed
+import { courseContent } from "@/lessons/intro-to-transactions/courseContent";
 import { file } from "@/lessons/intro-to-transactions/files";
-import { cobalt2, cyberpunk, sandpackDark } from "@codesandbox/sandpack-themes";
 
 const CoursePage: React.FC = () => {
+  const { colorScheme } = useMantineColorScheme();
+  const sandpackTheme = colorScheme === 'dark' ? 'dark' : 'light';
+  
   const [leftWidth, setLeftWidth] = useState<number>(500);
   const [previewHeight, setPreviewHeight] = useState<number>(80);
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -34,8 +32,7 @@ const CoursePage: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState<number>(0);
-  const [highestStepVisited, setHighestStepVisited] =
-    useState<number>(activeStep);
+  const [highestStepVisited, setHighestStepVisited] = useState<number>(activeStep);
   const router = useRouter();
   const { courseId } = router.query;
   const course = courses.find((course) => course.id === courseId);
@@ -191,18 +188,10 @@ const CoursePage: React.FC = () => {
             )}
           </ScrollArea>
         </div>
-        <div
-          
-          className="w-2 bg-[#222222]"
-          style={{ width: "10px", height: "100%" }}
-        />
-        <div
-          className="flex-1 h-full"
-          style={{ maxWidth: "calc(100vw - 90px)", minWidth: "50vw" }}
-        >
+        <div className="w-2 bg-[#222222]" style={{ width: "10px", height: "100%" }} />
+        <div className="flex-1 h-full" style={{ maxWidth: "calc(100vw - 90px)", minWidth: "50vw" }}>
           <SandpackProvider
-            autoSave="false"
-            autoCorrect="true"
+            
             files={{ "pages/index.js": file }}
             customSetup={{
               dependencies: {
@@ -212,9 +201,9 @@ const CoursePage: React.FC = () => {
                 axios: "^1.2.2",
               },
             }}
-            theme='dark'
+            theme={sandpackTheme}
             template="nextjs"
-            style={{ paddingRight: "10px",}}
+            style={{ paddingRight: "10px" }}
           >
             <SandpackLayout>
               <SandpackCodeEditor

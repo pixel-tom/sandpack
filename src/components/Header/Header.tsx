@@ -30,6 +30,7 @@ import {
 } from "@tabler/icons-react";
 import classes from "./Header.module.css";
 import Link from "next/link";
+import { DarkModeButton } from "../DarkModeButton/DarkModeButton";
 
 const mockdata = [
   {
@@ -100,7 +101,7 @@ export function HeaderMegaMenu() {
           </Link>
           
 
-          <Group visibleFrom="sm">
+          <Group visibleFrom="sm"><DarkModeButton />
             <Button variant="default">Log in</Button>
             <Button variant="filled" color="orange">
               Sign up
@@ -152,6 +153,7 @@ export function HeaderMegaMenu() {
           <Divider my="sm" />
 
           <Group justify="center" grow pb="xl" px="md">
+            
             <Button variant="default">Log in</Button>
             <Button color="orange">Sign up</Button>
           </Group>
