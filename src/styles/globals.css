@@ -31,3 +31,34 @@ main {
   flex-direction: row;
 }
 
+/* Add these styles to your CSS file */
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  color: #f5a623;
+  margin-bottom: 16px;
+}
+
+.markdown-content p {
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.markdown-content code {
+  background-color: #2f2f2f;
+  color: #f5a623;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.markdown-content pre {
+  background-color: #2f2f2f;
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+

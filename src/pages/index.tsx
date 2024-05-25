@@ -11,53 +11,19 @@ import {
 } from "@codesandbox/sandpack-react";
 import {
   ScrollArea,
-  Text,
   Title,
   ThemeIcon,
   List,
-  Group,
   Divider,
   Button,
-  Stepper,
   Center,
 } from "@mantine/core";
 import { IconBook } from "@tabler/icons-react";
-import { indexFile } from "@/files/index";
+import { courseContent } from "@/lessons/intro-to-transactions/courseContent";
+import { file } from "@/lessons/intro-to-transactions/files";
+import styles from "@/lessons/intro-to-transactions/CourseContent.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
-
-const courseContent = [
-  {
-    title: "Introduction",
-    content: "Welcome to the course! This is the introduction section.",
-    code: `// This is the introductory code example
-console.log('Welcome to the course!');`,
-  },
-  {
-    title: "Lesson 1: Getting Started",
-    content: "In this lesson, you will learn how to get started.",
-    code: `// Lesson 1 code example
-console.log('Getting started');`,
-  },
-  {
-    title: "Lesson 2: Setting Up",
-    content: "In this lesson, you will learn how to set up your environment.",
-    code: `// Lesson 2 code example
-console.log('Setting up');`,
-  },
-  {
-    title: "Lesson 3: First Steps",
-    content: "In this lesson, you will take your first steps.",
-    code: `// Lesson 3 code example
-console.log('First steps');`,
-  },
-  {
-    title: "Conclusion",
-    content: "This is the conclusion of the course.",
-    code: `// Conclusion code example
-console.log('Congratulations on completing the course!');`,
-  },
-];
 
 const Home: React.FC = () => {
   const [leftWidth, setLeftWidth] = useState<number>(500);
@@ -122,9 +88,10 @@ const Home: React.FC = () => {
           <Title order={2} style={{ color: "#f5a623", marginBottom: "20px" }}>
             Intro to solana/web3.js
           </Title>
-          <Text style={{ color: "#ffffff", marginBottom: "20px" }}>
-            {courseContent[activeStep].content}
-          </Text>
+          <div
+            className={styles.lessonContent}
+            dangerouslySetInnerHTML={{ __html: courseContent[activeStep].content }}
+          />
           <Divider style={{ marginBottom: "20px" }} />
           <List
             spacing="md"
@@ -146,14 +113,11 @@ const Home: React.FC = () => {
               </List.Item>
             ))}
           </List>
-          <Center  mt="md" className="flex gap-5">
+          <Center mt="md" className="flex gap-5">
             <Button onClick={() => handleStepChange(activeStep - 1)} disabled={activeStep === 0}>
               Back
             </Button>
-            <Button
-              onClick={() => handleStepChange(activeStep + 1)}
-              disabled={activeStep === courseContent.length - 1}
-            >
+            <Button onClick={() => handleStepChange(activeStep + 1)} disabled={activeStep === courseContent.length - 1}>
               Next step
             </Button>
           </Center>
@@ -166,9 +130,9 @@ const Home: React.FC = () => {
       />
       <div className="flex-1 h-full" style={{ maxWidth: "80vw", minWidth: "50vw" }}>
         <SandpackProvider
-        autoSave='false'
-        autoCorrect="true"
-        
+          autoSave="false"
+          autoCorrect="true"
+          files={{ "pages/index.js": file }}
           customSetup={{
             dependencies: {
               "@metaplex-foundation/js": "^0.17.12",
@@ -215,7 +179,6 @@ const Home: React.FC = () => {
         >
           <SandpackLayout>
             <SandpackCodeEditor
-              
               showLineNumbers
               showTabs
               showInlineErrors

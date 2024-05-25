@@ -1,0 +1,93 @@
+/* CourseContent.module.css */
+
+.lessonTitle {
+    color: #f5a623;
+    margin-bottom: 16px;
+    font-size: 2rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+.lessonText {
+    color: #ffffff;
+    margin-bottom: 16px;
+    line-height: 1.6;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+  
+.lessonCode {
+    background-color: #2f2f2f;
+    color: #f5a623;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+  }
+  
+.lessonPre {
+    background-color: #2f2f2f;
+    color: #ffffff;
+    padding: 16px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+  }
+  
+.lessonList {
+    color: #ffffff;
+    list-style: decimal inside;
+    padding-left: 20px;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+  
+  .lessonSubList {
+    list-style: disc inside;
+    padding-left: 20px;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+  
+  .lessonStep {
+    color: #ffffff;
+    margin-bottom: 16px;
+    font-size: 1rem;
+  }
+  
+  .lessonHeader {
+    color: #f5a623;
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .button {
+    background-color: #f5a623;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #e5941f;
+    transform: scale(1.05);
+  }
+  
+  @media (max-width: 768px) {
+    .lessonTitle {
+      font-size: 1.5rem;
+    }
+  
+    .lessonText, .lessonCode, .lessonPre, .lessonList, .lessonSubList, .lessonStep, .lessonHeader {
+      font-size: 0.875rem;
+    }
+  }
+  
