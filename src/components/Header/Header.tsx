@@ -29,6 +29,7 @@ import {
     IconChevronDown,
   } from '@tabler/icons-react';
   import classes from './Header.module.css';
+import Link from 'next/link';
   
   const mockdata = [
     {
@@ -93,9 +94,9 @@ import {
             <MantineLogo size={30} color='orange'/>
   
             <Group h="100%" gap={0} visibleFrom="sm">
-              <a href="#" className={classes.link}>
+              <Link href="/" className={classes.link}>
                 Home
-              </a>
+              </Link>
               <HoverCard width={600} position="bottom" radius="md" shadow="md" withinPortal>
                 <HoverCard.Target>
                   <a href="#" className={classes.link}>
@@ -114,9 +115,9 @@ import {
                 <HoverCard.Dropdown style={{ overflow: 'hidden' }}>
                   <Group justify="space-between" px="md">
                     <Text fw={500}>Features</Text>
-                    <Anchor href="#" fz="xs">
+                    <Link href="#" >
                       View all
-                    </Anchor>
+                    </Link>
                   </Group>
   
                   <Divider my="sm" />
@@ -140,12 +141,9 @@ import {
                   </div>
                 </HoverCard.Dropdown>
               </HoverCard>
-              <a href="#" className={classes.link}>
-                Learn
-              </a>
-              <a href="#" className={classes.link}>
+              <Link href="#" className={classes.link}>
                 Academy
-              </a>
+              </Link>
             </Group>
   
             <Group visibleFrom="sm">

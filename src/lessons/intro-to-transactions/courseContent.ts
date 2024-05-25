@@ -1,3 +1,5 @@
+// lessons/intro-to-transactions/courseContent.ts
+
 import styles from './CourseContent.module.css';
 
 export const courseContent = [
