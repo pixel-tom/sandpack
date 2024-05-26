@@ -10,7 +10,7 @@ export function DarkModeButton() {
   return (
     <Group justify="center">
       <ActionIcon
-        onClick={() => setColorScheme(computedColorScheme === 'light' ? 'dark' : 'light')}
+        onClick={() => setColorScheme(computedColorScheme === 'dark' ? 'light' : 'dark')}
         variant="default"
         size="xl"
         aria-label="Toggle color scheme"

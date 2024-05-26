@@ -21,6 +21,7 @@ import { courses } from "@/data/courses";
 import { courseContent } from "@/lessons/intro-to-transactions/courseContent";
 import { file } from "@/lessons/intro-to-transactions/files";
 
+
 const CoursePage: React.FC = () => {
   const { colorScheme } = useMantineColorScheme();
   const sandpackTheme = colorScheme === 'dark' ? 'dark' : 'light';
