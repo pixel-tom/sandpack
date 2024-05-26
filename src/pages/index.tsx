@@ -20,6 +20,8 @@ const Home: FC = () => {
                 title: course.title,
                 description: course.description,
                 icons: course.icons,
+                bgColor: course.bgColor,
+                bgImage: course.bgImage
               }}
             />
           </Grid.Col>

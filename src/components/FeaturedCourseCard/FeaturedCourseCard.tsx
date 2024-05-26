@@ -8,6 +8,8 @@ interface FeaturedCourseCardProps {
     title: string;
     description: string;
     icons: string[];
+    bgColor: string;
+    bgImage: string;
   };
 }
 
@@ -25,14 +27,10 @@ export default function FeaturedCourseCard({
       shadow="sm"
       padding="lg"
       radius="md"
-      h={300}
+      h={285}
+      bg={course.bgColor}
       withBorder
-      className="flex flex-col justify-between rounded-lg shadow-md overflow-hidden bg-no-repeat"
-      style={{
-        backgroundImage: "url('/card-bg.svg')",
-        backgroundSize: "auto 100%",  // Adjust size to fit height
-        backgroundPosition: "right center", // Position it to the right
-      }}
+      className="flex flex-col justify-between rounded-lg shadow-md overflow-hidden bg-no-repeat featured-course-card"
     >
       <div className="flex justify-between w-full">
         <Pill fw={600} size="md">Rookie</Pill>
@@ -44,16 +42,17 @@ export default function FeaturedCourseCard({
       </div>
       <div className="mt-4">
         <div className="mb-4">
-          <p className="text-2xl font-bold">
+          <p className="text-2xl font-bold mb-2 text-[#000]">
             {course.title}
           </p>
-          <Text size="sm" color="dimmed" className="mb-4 text-gray-700">
+          <p  color="dimmed" className="mb-4 text-[#111]">
             {course.description}
-          </Text>
+          </p>
         </div>
         <Button
           variant="filled"
           color="dark"
+          c={'lightGray'}
           w={200}
           className="text-white hover:bg-blue-600"
           onClick={() => handleCourseClick(course.id)}

@@ -26,7 +26,6 @@ import {
 } from "@tabler/icons-react";
 import classes from "./Header.module.css";
 import Link from "next/link";
-import { DarkModeButton } from "../DarkModeButton/DarkModeButton";
 
 const mockdata = [
   {
