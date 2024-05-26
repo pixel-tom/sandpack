@@ -1,12 +1,9 @@
 import {
-  HoverCard,
   Group,
   Button,
   UnstyledButton,
   Text,
-  SimpleGrid,
   ThemeIcon,
-  Anchor,
   Divider,
   Center,
   Box,
@@ -17,7 +14,6 @@ import {
   rem,
   useMantineTheme,
 } from "@mantine/core";
-import { MantineLogo } from "@mantinex/mantine-logo";
 import { useDisclosure } from "@mantine/hooks";
 import {
   IconNotification,
@@ -101,7 +97,7 @@ export function HeaderMegaMenu() {
           </Link>
           
 
-          <Group visibleFrom="sm"><DarkModeButton />
+          <Group visibleFrom="sm">
             <Button variant="default">Log in</Button>
             <Button variant="filled" color="orange">
               Sign up
