@@ -7,17 +7,9 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
-
-
-body {
-  color: rgb(var(--foreground-rgb));
-  
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+#__next {
+  background-color: #090b0f;
+  background: rgba(26,27,37);
 }
 
 /* globals.css */
@@ -31,7 +23,7 @@ html, body, #__next, main {
 main {
   display: flex;
   flex-direction: column;
-  height: 92%;
+  height: 98%;
 }
 
 #content {
@@ -42,7 +34,7 @@ main {
 }
 
 .scroll-area {
-  height: 92%;
+  height: 80%;
   overflow: auto;
 }
 

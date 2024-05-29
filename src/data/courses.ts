@@ -6,7 +6,7 @@ export const courses = [
     contentFile: "@/lessons/intro-to-transactions/courseContent",
     files: "@/lessons/intro-to-transactions/files",
     icons: ["/solana.svg", "/bonk.svg"],
-    bgColor: "#6D30B7",
+    bgColor: "#926dff",
     bgImage: "/card-bg.svg"
   },
   {

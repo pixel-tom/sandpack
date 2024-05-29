@@ -11,8 +11,7 @@ const theme = createTheme({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <MantineProvider theme={DEFAULT_THEME} forceColorScheme="dark">
-        <HeaderMegaMenu />
+    <MantineProvider forceColorScheme="dark">
         <Component {...pageProps} />
     </MantineProvider>
   );

@@ -26,6 +26,7 @@ import {
 } from "@tabler/icons-react";
 import classes from "./Header.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 const mockdata = [
   {
@@ -88,25 +89,26 @@ export function HeaderMegaMenu() {
   ));
 
   return (
-    <Box p={8}>
+    <div className="p-0 mx-6 my-3 px-4 py-1  bg-[rgba(26,27,37)] border-2 border-[#444444] rounded-full shadow-lg">
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          <Link href="/" className={classes.link}>
-            <p className="text-lg font-bold">Doge Academy</p>
+          <Link href="/" className={` flex items-center gap-2`}>
+            <Image src="/doge-logo.png" alt="doge" width={40} height={40} />
+            <p className="font-extrabold text-gray-300">Doge Academy</p>
           </Link>
-          
-
           <Group visibleFrom="sm">
-            <Button variant="default">Log in</Button>
-            <Button variant="filled" color="orange">
-              Sign up
-            </Button>
+            <UnstyledButton>
+              <Image src="/wallet.svg" alt="login" width={25} height={25} />
+            </UnstyledButton>
+            <UnstyledButton>
+              <Image src="/user.svg" alt="login" width={25} height={25} />
+            </UnstyledButton>
           </Group>
-
           <Burger
             opened={drawerOpened}
             onClick={toggleDrawer}
             hiddenFrom="sm"
+            size={"sm"}
           />
         </Group>
       </header>
@@ -148,12 +150,11 @@ export function HeaderMegaMenu() {
           <Divider my="sm" />
 
           <Group justify="center" grow pb="xl" px="md">
-            
             <Button variant="default">Log in</Button>
             <Button color="orange">Sign up</Button>
           </Group>
         </ScrollArea>
       </Drawer>
-    </Box>
+    </div>
   );
 }

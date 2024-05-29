@@ -19,7 +19,7 @@ export default function FeaturedCourseCard({
   const router = useRouter();
 
   const handleCourseClick = (id: string) => {
-    router.push(`/courses/${id}`);
+    router.push(`/course/${id}`);
   };
 
   return (

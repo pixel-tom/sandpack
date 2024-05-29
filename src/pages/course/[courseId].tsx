@@ -20,6 +20,8 @@ import { IconBook, IconChevronLeft, IconChevronRight } from "@tabler/icons-react
 import { courses } from "@/data/courses";
 import { courseContent } from "@/lessons/intro-to-transactions/courseContent";
 import { file } from "@/lessons/intro-to-transactions/files";
+import { sandpackDark } from "@codesandbox/sandpack-themes";
+import { HeaderMegaMenu } from "@/components/Header/Header";
 
 
 const CoursePage: React.FC = () => {
@@ -51,14 +53,6 @@ const CoursePage: React.FC = () => {
 
     setActiveStep(nextStep);
     setHighestStepVisited((hSC) => Math.max(hSC, nextStep));
-  };
-
-  const handleMouseDown = (e: MouseEvent<HTMLDivElement>, type: string) => {
-    if (type === "horizontal") {
-      setIsDragging(true);
-    } else if (type === "vertical") {
-      setIsVerticalDragging(true);
-    }
   };
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
@@ -94,10 +88,15 @@ const CoursePage: React.FC = () => {
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
+      className="pt-[1px]"
     >
+      <div>
+        <HeaderMegaMenu />
+      </div>
+      
       <div id="content" className="flex w-full">
         <div
-          className={`relative bg-[#1b1b1b] transition-all duration-300 ${
+          className={`relative bg-[#111] rounded-r-[4px] transition-all duration-300 border border-[#252525] ${
             isCollapsed ? 'slide-out' : 'slide-in'
           }`}
           style={{
@@ -124,7 +123,7 @@ const CoursePage: React.FC = () => {
               )}
             </Button>
           </div>
-          <ScrollArea px="xl" pb={20} className="scroll-area ">
+          <ScrollArea px="xl" className="scroll-area ">
             {!isCollapsed && (
               <>
                 <Title
@@ -189,7 +188,7 @@ const CoursePage: React.FC = () => {
             )}
           </ScrollArea>
         </div>
-        <div className="w-2 bg-[#222222]" style={{ width: "10px", height: "100%" }} />
+        <div className="w-2 " style={{ width: "10px", height: "100%" }} />
         <div className="flex-1 h-full" style={{ maxWidth: "calc(100vw - 90px)", minWidth: "50vw" }}>
           <SandpackProvider
             
@@ -202,7 +201,7 @@ const CoursePage: React.FC = () => {
                 axios: "^1.2.2",
               },
             }}
-            theme={sandpackTheme}
+            theme={sandpackDark}
             template="nextjs"
             style={{ paddingRight: "10px" }}
           >
@@ -212,9 +211,9 @@ const CoursePage: React.FC = () => {
                 showTabs
                 showInlineErrors
                 showRunButton
-                style={{ height: "calc(100vh - 60px)" }}
+                style={{ height: "calc(88vh)" }}
               />
-              <div style={{ height: "calc(100vh - 60px)", width: "340px" }}>
+              <div style={{ height: "calc(88vh)", width: "340px" }}>
                 <SandpackPreview
                   showNavigator
                   showRefreshButton
