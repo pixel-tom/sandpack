@@ -9,25 +9,25 @@ import {
 } from "@codesandbox/sandpack-react";
 import {
   ScrollArea,
-  Title,
   ThemeIcon,
   List,
   Divider,
   Button,
   useMantineColorScheme,
 } from "@mantine/core";
-import { IconBook, IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
+import {
+  IconBook,
+  IconChevronLeft,
+  IconChevronRight,
+} from "@tabler/icons-react";
 import { courses } from "@/data/courses";
 import { courseContent } from "@/lessons/intro-to-transactions/courseContent";
 import { file } from "@/lessons/intro-to-transactions/files";
 import { sandpackDark } from "@codesandbox/sandpack-themes";
 import { HeaderMegaMenu } from "@/components/Header/Header";
 
-
 const CoursePage: React.FC = () => {
-  const { colorScheme } = useMantineColorScheme();
-  const sandpackTheme = colorScheme === 'dark' ? 'dark' : 'light';
-  
+
   const [leftWidth, setLeftWidth] = useState<number>(500);
   const [previewHeight, setPreviewHeight] = useState<number>(80);
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -35,7 +35,8 @@ const CoursePage: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeStep, setActiveStep] = useState<number>(0);
-  const [highestStepVisited, setHighestStepVisited] = useState<number>(activeStep);
+  const [highestStepVisited, setHighestStepVisited] =
+    useState<number>(activeStep);
   const router = useRouter();
   const { courseId } = router.query;
   const course = courses.find((course) => course.id === courseId);
@@ -93,15 +94,15 @@ const CoursePage: React.FC = () => {
       <div>
         <HeaderMegaMenu />
       </div>
-      
+
       <div id="content" className="flex w-full">
         <div
           className={`relative bg-[#111] rounded-r-[4px] transition-all duration-300 border border-[#252525] ${
-            isCollapsed ? 'slide-out' : 'slide-in'
+            isCollapsed ? "slide-out" : "slide-in"
           }`}
           style={{
             width: leftWidth,
-            minWidth: '90px',
+            minWidth: "90px",
           }}
         >
           <div className="flex justify-between">
@@ -126,13 +127,20 @@ const CoursePage: React.FC = () => {
           <ScrollArea px="xl" className="scroll-area ">
             {!isCollapsed && (
               <>
-                <Title
-                  className="text-orange-50"
-                  order={2}
-                  style={{ marginBottom: "20px" }}
+                <p
+                  className="text-xl font-bold text-indigo-50 mb-1"
+                  
+                  
                 >
                   {course.title}
-                </Title>
+                </p>
+                <p
+                  className=" text-indigo-100 text-sm"
+                  
+                  style={{ marginBottom: "20px" }}
+                >
+                  Author: {course.author}
+                </p>
                 <div
                   dangerouslySetInnerHTML={{
                     __html: courseContent[activeStep].content,
@@ -189,9 +197,11 @@ const CoursePage: React.FC = () => {
           </ScrollArea>
         </div>
         <div className="w-2 " style={{ width: "10px", height: "100%" }} />
-        <div className="flex-1 h-full" style={{ maxWidth: "calc(100vw - 90px)", minWidth: "50vw" }}>
+        <div
+          className="flex-1 h-full"
+          style={{ maxWidth: "calc(100vw - 90px)", minWidth: "50vw" }}
+        >
           <SandpackProvider
-            
             files={{ "pages/index.js": file }}
             customSetup={{
               dependencies: {
