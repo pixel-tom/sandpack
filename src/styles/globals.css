@@ -9,6 +9,9 @@
 }
 #__next {
   background: rgba(21, 22, 30);
+  font-family:
+      Greycliff CF,
+      var(--mantine-font-family);
 }
 
 /* globals.css */

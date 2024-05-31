@@ -21,7 +21,6 @@ const Courses: FC = () => {
         <div className="h-16" />
         <div className="mb-10">
           <p className="text-center font-extrabold text-[2.75rem]">Explore Courses.</p>
-          <p className="text-center text-gray-400">Learn the ins and outs of Solana Development</p>
         </div>
         <Search />
       </div>

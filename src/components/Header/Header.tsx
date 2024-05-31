@@ -94,7 +94,7 @@ export function HeaderMegaMenu() {
         <Group justify="space-between" h="100%">
           <Link href="/" className={` flex items-center gap-2 my-auto`}>
             <Image src="/doge-logo.png" alt="doge" width={40} height={40} />
-            <p className="font-extrabold text-gray-300 my-auto">Doge Academy</p>
+            <p className="text-lg font-extrabold text-gray-300 my-auto">Doge Academy</p>
           </Link>
           <Group visibleFrom="sm">
             <UnstyledButton>
