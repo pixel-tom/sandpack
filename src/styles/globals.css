@@ -8,8 +8,7 @@
   --background-end-rgb: 255, 255, 255;
 }
 #__next {
-  background-color: #090b0f;
-  background: rgba(26,27,37);
+  background: rgb(21, 22, 30);
 }
 
 /* globals.css */

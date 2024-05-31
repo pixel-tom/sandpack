@@ -89,7 +89,7 @@ export function HeaderMegaMenu() {
   ));
 
   return (
-    <div className="p-0 mx-6 my-3 px-4 py-1  bg-[rgba(26,27,37)] border-2 border-[#444444] rounded-full shadow-lg">
+    <div className="p-0 mx-6 my-3 px-4 py-1  bg-[rgba(26,27,37)] border border-[#444444] rounded-full shadow-lg">
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
           <Link href="/" className={` flex items-center gap-2`}>

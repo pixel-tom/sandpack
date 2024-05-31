@@ -23,7 +23,7 @@ import {
 import { courses } from "@/data/courses";
 import { courseContent } from "@/lessons/intro-to-transactions/courseContent";
 import { file } from "@/lessons/intro-to-transactions/files";
-import { sandpackDark } from "@codesandbox/sandpack-themes";
+import { amethyst, atomDark, gruvboxDark, levelUp, monokaiPro, sandpackDark } from "@codesandbox/sandpack-themes";
 import { HeaderMegaMenu } from "@/components/Header/Header";
 
 const CoursePage: React.FC = () => {
@@ -211,7 +211,40 @@ const CoursePage: React.FC = () => {
                 axios: "^1.2.2",
               },
             }}
-            theme={sandpackDark}
+            theme={{
+              "colors": {
+                "surface1": "#1a1b25",
+                "surface2": "#3e3d3d",
+                "surface3": "#404041",
+                "clickable": "#999999",
+                "base": "#808080",
+                "disabled": "#4D4D4D",
+                "hover": "#C5C5C5",
+                "accent": "#caa0fc",
+                "error": "#ff453a",
+                "errorSurface": "#ffeceb"
+              },
+              "syntax": {
+                "plain": "#FFFFFF",
+                "comment": {
+                  "color": "#757575",
+                  "fontStyle": "italic"
+                },
+                "keyword": "#caa0fc",
+                "tag": "#84fddc",
+                "punctuation": "#ffffff",
+                "definition": "#9dc6f9",
+                "property": "#0971F1",
+                "static": "#FF453A",
+                "string": "#bf5af2"
+              },
+              "font": {
+                "body": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
+                "mono": "\"Fira Mono\", \"DejaVu Sans Mono\", Menlo, Consolas, \"Liberation Mono\", Monaco, \"Lucida Console\", monospace",
+                "size": "13px",
+                "lineHeight": "20px"
+              }
+            }}
             template="nextjs"
             style={{ paddingRight: "10px" }}
           >

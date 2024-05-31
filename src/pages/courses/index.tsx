@@ -12,7 +12,7 @@ const bannerStyle = {
   paddingTop: "1px ",
   paddingBottom: "60px ",
   backgroundImage:
-    'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(26,27,37)), url("/alchemy-banner.png")',
+    'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(21, 22, 30)), url("/alchemy-banner.png")',
 };
 
 const Courses: FC = () => {
