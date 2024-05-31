@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useState, useRef, MouseEvent } from "react";
 import {
+  Sandpack,
   SandpackCodeEditor,
   SandpackConsole,
   SandpackLayout,
@@ -83,13 +84,22 @@ const CoursePage: React.FC = () => {
     setLeftWidth(isCollapsed ? 500 : 90);
   };
 
+  const bannerStyle = {
+    backgroundSize: "cover",
+    backgroundPosition: "top",
+    
+    backgroundImage:
+      'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(21, 22, 30)), url("/alchemy-banner.png")',
+  };
+
   return (
     <main
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
-      className="pt-[1px]"
+      className={`pt-[1px] ${bannerStyle}`}
+      style={bannerStyle}
     >
       <div>
         <HeaderMegaMenu />
@@ -97,7 +107,7 @@ const CoursePage: React.FC = () => {
 
       <div id="content" className="flex w-full">
         <div
-          className={`relative bg-[#111] rounded-r-[4px] transition-all duration-300 border border-[#252525] ${
+          className={`relative bg-[#111] rounded-r-[4px] transition-all duration-300 border-t border-r border-b border-[#3e3d3d] ${
             isCollapsed ? "slide-out" : "slide-in"
           }`}
           style={{
@@ -198,10 +208,10 @@ const CoursePage: React.FC = () => {
         </div>
         <div className="w-2 " style={{ width: "10px", height: "100%" }} />
         <div
-          className="flex-1 h-full"
+          className="flex-1 mr-2"
           style={{ maxWidth: "calc(100vw - 90px)", minWidth: "50vw" }}
         >
-          <SandpackProvider
+          <Sandpack
             files={{ "pages/index.js": file }}
             customSetup={{
               dependencies: {
@@ -211,32 +221,41 @@ const CoursePage: React.FC = () => {
                 axios: "^1.2.2",
               },
             }}
+            options={{
+              showTabs: true,
+              showNavigator: true,
+              showLineNumbers: true,
+              showInlineErrors: true,
+              showConsoleButton: true,
+              editorHeight: 'calc(100vh - 80px)',
+              editorWidthPercentage: 69,
+            }}
             theme={{
               "colors": {
                 "surface1": "#1a1b25",
-                "surface2": "#3e3d3d",
-                "surface3": "#404041",
-                "clickable": "#999999",
-                "base": "#808080",
-                "disabled": "#4D4D4D",
-                "hover": "#C5C5C5",
-                "accent": "#caa0fc",
+                "surface2": "#3c3836",
+                "surface3": "#3c3836",
+                "clickable": "#f5f5f5",
+                "base": "#f5f5f5",
+                "disabled": "#928374",
+                "hover": "#fe8019",
+                "accent": "#d65d0e",
                 "error": "#ff453a",
-                "errorSurface": "#ffeceb"
+                "errorSurface": "#3c3836"
               },
               "syntax": {
-                "plain": "#FFFFFF",
+                "plain": "#f5f5f5",
                 "comment": {
-                  "color": "#757575",
+                  "color": "#928374",
                   "fontStyle": "italic"
                 },
-                "keyword": "#caa0fc",
-                "tag": "#84fddc",
-                "punctuation": "#ffffff",
-                "definition": "#9dc6f9",
-                "property": "#0971F1",
-                "static": "#FF453A",
-                "string": "#bf5af2"
+                "keyword": "#ff453a",
+                "tag": "#83a598",
+                "punctuation": "#f5f5f5",
+                "definition": "#83a598",
+                "property": "#fabd2f",
+                "static": "#f5f5f5",
+                "string": "#b8bb26"
               },
               "font": {
                 "body": "-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\"",
@@ -246,26 +265,10 @@ const CoursePage: React.FC = () => {
               }
             }}
             template="nextjs"
-            style={{ paddingRight: "10px" }}
-          >
-            <SandpackLayout>
-              <SandpackCodeEditor
-                showLineNumbers
-                showTabs
-                showInlineErrors
-                showRunButton
-                style={{ height: "calc(88vh)" }}
-              />
-              <div style={{ height: "calc(88vh)", width: "340px" }}>
-                <SandpackPreview
-                  showNavigator
-                  showRefreshButton
-                  style={{ height: "70%", width: "100%" }}
-                />
-                <SandpackConsole style={{ height: "30%", width: "100%" }} />
-              </div>
-            </SandpackLayout>
-          </SandpackProvider>
+            
+          />
+            
+          
         </div>
       </div>
     </main>

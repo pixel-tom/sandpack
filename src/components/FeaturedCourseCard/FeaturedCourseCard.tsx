@@ -27,7 +27,7 @@ export default function FeaturedCourseCard({
       shadow="sm"
       padding="lg"
       radius="md"
-      h={285}
+      h={260}
       bg={course.bgColor}
       withBorder
       className="flex flex-col justify-between rounded-lg shadow-md overflow-hidden bg-no-repeat featured-course-card"

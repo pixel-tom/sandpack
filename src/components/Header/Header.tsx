@@ -89,12 +89,12 @@ export function HeaderMegaMenu() {
   ));
 
   return (
-    <div className="p-0 mx-6 my-3 px-4 py-1  bg-[rgba(26,27,37)] border border-[#444444] rounded-full shadow-lg">
+    <div className="py-[10px] px-8 h-[60px] ">
       <header className={classes.header}>
         <Group justify="space-between" h="100%">
-          <Link href="/" className={` flex items-center gap-2`}>
+          <Link href="/" className={` flex items-center gap-2 my-auto`}>
             <Image src="/doge-logo.png" alt="doge" width={40} height={40} />
-            <p className="font-extrabold text-gray-300">Doge Academy</p>
+            <p className="font-extrabold text-gray-300 my-auto">Doge Academy</p>
           </Link>
           <Group visibleFrom="sm">
             <UnstyledButton>
